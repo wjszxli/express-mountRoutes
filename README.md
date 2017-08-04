@@ -1,66 +1,60 @@
-# a random token to store in redis (使用 redis 存储随机的 token)
+# Automatic mount routing for Express from file system (自动挂载express路由的中间件)
 
-get a random token to store  in redis. this module can be used for: （随机获取一个令牌存储在redis中，以下情况可以使用）
+ this module can be used for（在下面这些情况可以使用）: 
 
-- use promise （希望使用promise）
-- save session or cookie data (需要存储session和cookie数据缓存在redis中)
-- get a token for use  verification （获取一个令牌给用户验证）
+- Don't want each routing file to be defined again （不想每个路由文件都要在定义一遍）
+- Want middleware or API to automatically generate routes based on each routing file (想要中间件或者 api 根据每个路由文件自动去生成路由)
+- Routing is only defined in the file （路由只想在文件中定义一遍）
 
 ## Install （安装）
 
 ```
-$ npm install --save redis-token
+$ npm install --save express-mountroutes
 ```
 
 ## Usage （使用）
 
-```javascript
-var token = require('redis-token')
-
-var options = { host: '127.0.0.1', port: '6379', password: '' }
-// if you options is { host: '127.0.0.1', port: '6379', password: '' } 
-// you can write like is  'var redisToken = token.redisToken();'
-var redisToken = token.redisToken(options);
-
-/*
-insert value to redis get token (插入一条数据，获取一个令牌(token))
-@parameter value
-@parameter expire defalut is '0'  Permanent storage 
-*/
-redisToken.createToken('wjs',1000).then((key) => {
-    console.log(key) // { token: 'qWWPJPHWngnjwjfHLuxQdCjqr4CVE9e0J51QIxSjfQmmbXl4DmwrT4PZj5nb72wj',success: true }
-})
-
-/*
-get value from redis by key （依据令牌（token）获取数据）
-@parameter key
-*/
-redisToken.getToken('37vTMnF5S8SMcgIjmULh6gzaG60txCktvtEljyhtLr48bPPq8rbE0AKZj5m9tgoi').then((value)=>{
-    console.log(value) // { tokenValue: 'wjs', success: true }
-})
-
-/*
-kill token from redis by key（依据令牌（token）删除数据）
-@parameter key
-*/
-redisToken.killToken('37vTMnF5S8SMcgIjmULh6gzaG60txCktvtEljyhtLr48bPPq8rbE0AKZj5m9tgoi').then((value) => {
-    console.log(value) // { kill: [ 1 ], success: true }
-})
-```
-
-## Options
-
-All options below are showing their default values. （下面的 option 显示的是默认值）
+### app.js
 
 ```javascript
+var express = require('express');
+var routes = require('../index')
+var app = express();
 
-var options = { 
-    host: '127.0.0.1', // the redis server host, default is '127.0.0.1'
-    port: '6379',  // the redis server port, default is '6379'
-    password: '', // the redis password, default is ''
-  }
+// Here, as long as the routing file directory can be introduced（在这里只要把路由的文件目录传入就可以）
+app.use(routes(__dirname + '/routes'))
+
+var server = app.listen(3005, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+});
+
 
 ```
+
+### user.js in routes
+
+````
+function test (req, res, next) {
+  res.send('respond with a resource');
+}
+
+function change (req, res, next) {
+  res.send('helloworld')
+}
+
+module.exports = [
+  ['get', '/v1/test', test],
+  ['get', '/v1/hello', change]
+]
+
+````
+
+like this
+
+![like this](http://ojlst39mq.bkt.clouddn.com/express.png)
 
 ## test
 
