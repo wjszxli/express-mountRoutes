@@ -1,5 +1,5 @@
 {
-  "name": "express-mountRoutes",
+  "name": "express-mountroutes",
   "description": "Automatic mount routing for Express",
   "version": "1.1.0",
   "main": "index.js",
