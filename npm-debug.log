@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/wangjunsheng/learn/nodeTest/express-mountRoutes',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/wangjunsheng/.npm correctMkdir not in flight; initializing
+10 info lifecycle express-mountRoutes@1.1.0~prepublish: express-mountRoutes@1.1.0
+11 silly lifecycle express-mountRoutes@1.1.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package.tgz',
+12 verbose tar pack   '/Users/wangjunsheng/learn/nodeTest/express-mountRoutes' ]
+13 verbose tarball /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package.tgz
+14 verbose folder /Users/wangjunsheng/learn/nodeTest/express-mountRoutes
+15 verbose addLocalTarball adding from inside cache /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package.tgz
+16 verbose correctMkdir /Users/wangjunsheng/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd express-mountRoutes@1.1.0
+18 verbose afterAdd /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/wangjunsheng/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package/package.json written
+21 silly publish { name: 'express-mountRoutes',
+21 silly publish   description: 'Automatic mount routing for Express',
+21 silly publish   version: '1.1.0',
+21 silly publish   main: 'index.js',
+21 silly publish   license: 'MIT',
+21 silly publish   contributors: [ { name: 'wjs', email: 'wjszxli@163.com' } ],
+21 silly publish   keywords: [ 'express', 'router', 'routes', 'auto', 'web' ],
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/wjszxli/express-autoRoutes.git' },
+21 silly publish   engines: { node: '>= 6.10.0' },
+21 silly publish   dependencies: { express: '^4.15.3' },
+21 silly publish   readme: '# a random token to store in redis (使用 redis 存储随机的 token)\n\nget a random token to store  in redis. this module can be used for: （随机获取一个令牌存储在redis中，以下情况可以使用）\n\n- use promise （希望使用promise）\n- save session or cookie data (需要存储session和cookie数据缓存在redis中)\n- get a token for use  verification （获取一个令牌给用户验证）\n\n## Install （安装）\n\n```\n$ npm install --save redis-token\n```\n\n## Usage （使用）\n\n```javascript\nvar token = require(\'redis-token\')\n\nvar options = { host: \'127.0.0.1\', port: \'6379\', password: \'\' }\n// if you options is { host: \'127.0.0.1\', port: \'6379\', password: \'\' } \n// you can write like is  \'var redisToken = token.redisToken();\'\nvar redisToken = token.redisToken(options);\n\n/*\ninsert value to redis get token (插入一条数据，获取一个令牌(token))\n@parameter value\n@parameter expire defalut is \'0\'  Permanent storage \n*/\nredisToken.createToken(\'wjs\',1000).then((key) => {\n    console.log(key) // { token: \'qWWPJPHWngnjwjfHLuxQdCjqr4CVE9e0J51QIxSjfQmmbXl4DmwrT4PZj5nb72wj\',success: true }\n})\n\n/*\nget value from redis by key （依据令牌（token）获取数据）\n@parameter key\n*/\nredisToken.getToken(\'37vTMnF5S8SMcgIjmULh6gzaG60txCktvtEljyhtLr48bPPq8rbE0AKZj5m9tgoi\').then((value)=>{\n    console.log(value) // { tokenValue: \'wjs\', success: true }\n})\n\n/*\nkill token from redis by key（依据令牌（token）删除数据）\n@parameter key\n*/\nredisToken.killToken(\'37vTMnF5S8SMcgIjmULh6gzaG60txCktvtEljyhtLr48bPPq8rbE0AKZj5m9tgoi\').then((value) => {\n    console.log(value) // { kill: [ 1 ], success: true }\n})\n```\n\n## Options\n\nAll options below are showing their default values. （下面的 option 显示的是默认值）\n\n```javascript\n\nvar options = { \n    host: \'127.0.0.1\', // the redis server host, default is \'127.0.0.1\'\n    port: \'6379\',  // the redis server port, default is \'6379\'\n    password: \'\', // the redis password, default is \'\'\n  }\n\n```\n\n## test\n\n```\n$ npm test\n```',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: '5a365a22d6a024b6cbe5a7eab528c241080837a9',
+21 silly publish   bugs: { url: 'https://github.com/wjszxli/express-autoRoutes/issues' },
+21 silly publish   homepage: 'https://github.com/wjszxli/express-autoRoutes#readme',
+21 silly publish   _id: 'express-mountRoutes@1.1.0',
+21 silly publish   scripts: {},
+21 silly publish   _shasum: 'b471d4ae1ce47c02232506cf192a2ced0c3119cd',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name express-mountRoutes
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'express-mountRoutes',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'express-mountRoutes',
+26 silly mapToRegistry   name: 'express-mountRoutes',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/express-mountRoutes
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/wangjunsheng/.npm/express-mountRoutes/1.1.0/package.tgz
+30 verbose request uri https://registry.npmjs.org/express-mountRoutes
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 18:05:37
+33 verbose request using bearer token for auth
+34 verbose request id e72d75a83a8ebf11
+35 http request PUT https://registry.npmjs.org/express-mountRoutes
+36 http 400 https://registry.npmjs.org/express-mountRoutes
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '63',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Fri, 04 Aug 2017 10:04:53 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-hkg17928-HKG',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1501841093.015762,VS0,VE777',
+37 verbose headers   vary: 'Accept-Encoding, Accept' }
+38 verbose request invalidating /Users/wangjunsheng/.npm/registry.npmjs.org/express-mountRoutes on PUT
+39 error publish Failed PUT 400
+40 verbose stack Error: "express-mountRoutes" is invalid for new packages : express-mountRoutes
+40 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 400
+42 verbose pkgid express-mountRoutes
+43 verbose cwd /Users/wangjunsheng/learn/nodeTest/express-mountRoutes
+44 error Darwin 16.6.0
+45 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+46 error node v6.11.0
+47 error npm  v3.10.10
+48 error code E400
+49 error "express-mountRoutes" is invalid for new packages : express-mountRoutes
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
